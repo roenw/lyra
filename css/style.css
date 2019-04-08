@@ -1,0 +1,39 @@
+body {
+    background-color: #232b33;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.container {
+    margin-left: 1%;
+    margin-top: 3%;
+}
+
+#greeting {
+    font-size: 30pt;
+    margin-bottom: 0;
+}
+
+.element-small-margin {
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+#grtt {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 10pt;
+    opacity: 0.5;
+}
+
+.qs {
+    display: inline-block;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 10pt;
+    opacity: 0.5;
+    margin-right: 2%;
+}
+
+#quote-author {
+    color: lime;
+    opacity: 0.5;
+}
