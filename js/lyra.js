@@ -3,33 +3,25 @@ var name = "Name";
 window.onload = function firstUpdate() {
     var date = new Date();
 
+    var hour = date.getHours();
+
     var year = date.getFullYear();
     var month = date.getMonth();
     var day = date.getDate();
-    
-    var hour = date.getHours();
-    var minutes = date.getMinutes();
-    var seconds = date.getSeconds();
+    var dayOfWeek = date.getDay();
 
-    var ampm;
     var timeSimp;
     
     var monthArray = [["January"], ["February"], ["March"], ["April"], ["May"], ["June"], [
     "July"], ["August"], ["September"], ["October"], ["November"], ["December"]];
-    
-    if(minutes < 10) {
-        minutes = "0" + minutes;
-    }
-    
+    var daysArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
     if(hour > 12) {
         ampm = "pm";
-        dateString = hour - 12 + ":" + minutes + ampm + " - " + monthArray[month] + " " + day + ", " + year;
     } else if(hour == 0) {
         ampm = "pm";
-        dateString = "12" + ":" + minutes + ampm + " - " + monthArray[month] + " " + day + ", " + year;
     } else {
         ampm = "am";
-        dateString = hour + ":" + minutes + ampm + " - " + monthArray[month] + " " + day + ", " + year;
     }
 
     if(ampm === "am") {
@@ -45,6 +37,8 @@ window.onload = function firstUpdate() {
             timeSimp = "afternoon";
         }
     }
+    
+    dateString = daysArray[dayOfWeek] + ", " + monthArray[month] + " " + day + " " + year;
 
     var ihTime = document.getElementById('grtt');
     ihTime.innerHTML = dateString;
