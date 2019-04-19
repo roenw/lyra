@@ -6,6 +6,7 @@ body {
 
 .container {
     margin-left: 1%;
+    margin-right: 1%;
     margin-top: 3%;
 }
 
@@ -23,6 +24,7 @@ body {
     font-family: 'Source Code Pro', monospace;
     font-size: 10pt;
     opacity: 0.5;
+    margin-bottom: 0;
 }
 
 .qs {

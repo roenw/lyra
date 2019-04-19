@@ -10,6 +10,9 @@ window.onload = function firstUpdate() {
     var hour = date.getHours();
     var minutes = date.getMinutes();
     var seconds = date.getSeconds();
+
+    var ampm;
+    var timeSimp;
     
     var monthArray = [["January"], ["February"], ["March"], ["April"], ["May"], ["June"], [
     "July"], ["August"], ["September"], ["October"], ["November"], ["December"]];
@@ -19,17 +22,34 @@ window.onload = function firstUpdate() {
     }
     
     if(hour > 12) {
-        hour = hour - 12;
-        dateString = hour + ":" + minutes + "pm" + " - " + monthArray[month] + " " + day + ", " + year;
+        ampm = "pm";
+        dateString = hour - 12 + ":" + minutes + ampm + " - " + monthArray[month] + " " + day + ", " + year;
     } else if(hour == 0) {
-        hour = 12;
-        dateString = hour + ":" + minutes + "pm" + " - " + monthArray[month] + " " + day + ", " + year;
+        ampm = "pm";
+        dateString = "12" + ":" + minutes + ampm + " - " + monthArray[month] + " " + day + ", " + year;
     } else {
-        dateString = hour + ":" + minutes + "am" + " - " + monthArray[month] + " " + day + ", " + year;
+        ampm = "am";
+        dateString = hour + ":" + minutes + ampm + " - " + monthArray[month] + " " + day + ", " + year;
+    }
+
+    if(ampm === "am") {
+        if(hour < 12) {
+            timeSimp = "morning";
+        } else {
+            timeSimp = "night";
+        }
+    } else {
+        if(hour < 12) {
+            timeSimp = "evening";
+        } else {
+            timeSimp = "afternoon";
+        }
     }
 
     var ihTime = document.getElementById('grtt');
     ihTime.innerHTML = dateString;
+
+    document.getElementById('greeting').innerHTML = "Good " + timeSimp + ", " + name;
 
     getQuote();
 };
